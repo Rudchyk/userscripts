@@ -36,7 +36,11 @@ const nfxpnk = {
     },
 
     setIssueComponent() {
-        const componentText = qs('#components-field a').innerHTML;
+        const boo = qs('#components-field a');
+        if(!boo) {
+            return;
+        }
+        const componentText = boo.innerHTML;
         let component = 'GLOBAL';
         if(componentText.indexOf('PLP') > -1) {
             component = 'PLP';
@@ -130,7 +134,6 @@ const nfxpnk = {
 
     init() {
         this.start();
-
         const css = `
             .issue-number-field {
                 width: auto;
